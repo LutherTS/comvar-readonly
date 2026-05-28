@@ -1,0 +1,33 @@
+{
+  "name": "comvar-readonly",
+  "version": "0.1.0",
+  "displayName": "ComVar Readonly",
+  "description": "Reads Comment Variables.",
+  "keywords": [
+    "comments",
+    "variables",
+    "comment-variables"
+  ],
+  "license": "UNLICENSED",
+  "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
+  "publisher": "LutherTS",
+  "type": "module",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "source/library/index.js",
+  "scripts": {},
+  "dependencies": {
+    "@comvar/core-readonly": "file:packages/comvar-core-readonly-0.1.5.tgz",
+    "@lutherts/error-handling": "file:packages/lutherts-error-handling-0.1.6.tgz"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.120.0"
+  }
+}
