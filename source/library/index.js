@@ -4,7 +4,7 @@ import path from "path";
 
 import {
   defaultConfigFileName,
-  resolveConfigReadonly,
+  // resolveConfigReadonly,
 } from "@comvar/core-readonly";
 
 export async function activate(/** @type {vscode.ExtensionContext} */ context) {
