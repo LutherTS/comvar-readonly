@@ -24,8 +24,8 @@
   "main": "source/library/index.js",
   "scripts": {},
   "dependencies": {
-    "@comvar/core-readonly": "file:packages/comvar-core-readonly-0.1.5.tgz",
-    "@lutherts/error-handling": "file:packages/lutherts-error-handling-0.1.6.tgz"
+    "@comvar/core-readonly": "file:packages/comvar-core-readonly-0.1.8.tgz",
+    "@lutherts/error-handling": "file:packages/lutherts-error-handling-0.1.8.tgz"
   },
   "devDependencies": {
     "@types/vscode": "^1.120.0"
