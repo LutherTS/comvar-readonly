@@ -12,6 +12,7 @@
   "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
   "publisher": "LutherTS",
   "type": "module",
+  "main": "source/library/index.js",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -21,11 +22,16 @@
     "onLanguage:javascriptreact",
     "onLanguage:typescriptreact"
   ],
-  "main": "source/library/index.js",
-  "scripts": {},
+  "contributes": {
+    "typescriptServerPlugins": [
+      {
+        "name": "typescript-server-plugin",
+        "enableForWorkspaceTypeScriptVersions": true
+      }
+    ]
+  },
   "dependencies": {
-    "@comvar/core-readonly": "file:packages/comvar-core-readonly-0.1.8.tgz",
-    "@lutherts/error-handling": "file:packages/lutherts-error-handling-0.1.8.tgz"
+    "typescript-server-plugin": "file:plugin"
   },
   "devDependencies": {
     "@types/vscode": "^1.120.0"

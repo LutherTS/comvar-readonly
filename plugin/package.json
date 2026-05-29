@@ -4,6 +4,9 @@
   "description": "The TypeScript server plugin for ComVar Readonly.",
   "type": "module",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "devDependencies": {
     "typescript": "^6.0.3"
   }
