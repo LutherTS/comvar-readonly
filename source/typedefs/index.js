@@ -1,0 +1,3 @@
+/**
+ * @typedef {{configurePlugin: function}} TsExtensionApi
+ */
