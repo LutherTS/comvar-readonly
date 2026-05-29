@@ -1,0 +1,10 @@
+{
+  "name": "typescript-server-plugin",
+  "version": "0.1.0",
+  "description": "The TypeScript server plugin for ComVar Readonly.",
+  "type": "module",
+  "main": "index.js",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
