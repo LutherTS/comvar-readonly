@@ -21,8 +21,6 @@ import { configureTsServerPlugin } from "./utilities/configure-ts-server-plugin.
 import { refreshConfig } from "./utilities/refresh-config.js";
 
 export async function activate(/** @type {vscode.ExtensionContext} */ context) {
-  console.debug("It begins."); // It works.
-
   // Uses the first workspace folder as current working directory.
   const rootDirectory = vscode.workspace.workspaceFolders?.[0];
   if (!rootDirectory) {
@@ -30,12 +28,10 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
     showVSCodeError(vscode, comvarReadonlyCouldntStartError);
     return;
   }
-  // console.debug("rootDirectory is:", rootDirectory);
 
   // Only acknowledges the expected default config file path.
   const rootDirectoryPath = rootDirectory.uri.fsPath;
   const configFilePath = path.join(rootDirectoryPath, defaultConfigFileName);
-  // console.debug("configFilePath is:", configFilePath);
 
   // Gets and ensures the presence of the TS Extension API.
   const tsExtensionApi = await getTsExtensionApi();
@@ -44,7 +40,6 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
     showVSCodeError(vscode, comvarReadonlyCouldntStartError);
     return;
   }
-  // console.debug("tsExtensionApi before:", tsExtensionApi);
 
   // Immediately initializes the TypeScript server plugin with `null` `libraries` data.
   configureTsServerPlugin(tsExtensionApi, {

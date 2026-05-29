@@ -1,3 +1,5 @@
+/* general bases */
+
 export const successfullyInitialized =
   "ComVar Readonly successfully initialized.";
 
