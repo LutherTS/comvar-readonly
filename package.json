@@ -31,6 +31,8 @@
     ]
   },
   "dependencies": {
+    "@comvar/core-readonly": "file:packages/comvar-core-readonly-0.1.8.tgz",
+    "@lutherts/error-handling": "file:packages/lutherts-error-handling-0.1.8.tgz",
     "typescript-server-plugin": "file:plugin"
   },
   "devDependencies": {
