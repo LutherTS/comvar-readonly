@@ -3,8 +3,7 @@
  *  @typedef {import("typescript/lib/tsserverlibrary").LanguageService} LanguageService */
 
 /**
- * @typedef {Record<string, Record<string, string>>} LibrariesData
- * @typedef {{librariesData: LibrariesData | null}} PluginConfig
+ * @typedef {import("../source/typedefs/index.js").PluginConfig} PluginConfig
  */
 
 /* constants and utilities */

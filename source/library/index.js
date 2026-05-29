@@ -14,7 +14,10 @@ import {
   comvarReadonlyCouldntStartError,
 } from "../constants/errors/index.js";
 
+import { successfullyInitialized } from "./constants/index.js";
+
 import { getTsExtensionApi } from "./utilities/get-ts-extension-api.js";
+import { configureTsServerPlugin } from "./utilities/configure-ts-server-plugin.js";
 import { refreshConfig } from "./utilities/refresh-config.js";
 
 export async function activate(/** @type {vscode.ExtensionContext} */ context) {
@@ -44,7 +47,9 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
   // console.debug("tsExtensionApi before:", tsExtensionApi);
 
   // Immediately initializes the TypeScript server plugin with `null` `libraries` data.
-  // tsExtensionApi.configurePlugin() // { librariesData: null }
+  configureTsServerPlugin(tsExtensionApi, {
+    librariesData: null,
+  });
 
   // Creates the stable instance of `refreshConfig` bound to the immutable config file path and to the immutable TS Extension API.
   const refreshConfigBound = refreshConfig.bind(
@@ -63,7 +68,9 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
   watcher.onDidDelete((uri) => {
     // If the user deletes their config path, their `libraries` data is also deleted.
     if (uri.fsPath === configFilePath) {
-      // tsExtensionApi.configurePlugin() // { librariesData: null }
+      configureTsServerPlugin(tsExtensionApi, {
+        librariesData: null,
+      });
     } // But if they delete their package.json path, their `libraries` data remains as it last was.
   });
 
@@ -78,9 +85,7 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
     showVSCodeError(vscode, comvarReadonlyCouldntStartError);
     return;
   } else {
-    vscode.window.showInformationMessage(
-      "ComVar Readonly successfully initialized.",
-    );
+    vscode.window.showInformationMessage(successfullyInitialized);
   }
 }
 

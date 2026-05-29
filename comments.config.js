@@ -43,7 +43,6 @@ const variations = Object.freeze({
   referenceVariant: EN,
   // Defines the behavior of the error handling in case of variations that do not match one-to-one with the reference variation. If `true`, allows incomplete variations data to remain. If `false`, errors and guides the fixing of missing variations data (while ignoring composed variables exclusives).
   allowIncompleteVariations: true,
-  // Defines which variants' `#PUBLIC#` Comment Variables should be publicly available, by default through `comments.config.public.mjs` and `comments.config.public.json`.
 });
 
 /* libraries */

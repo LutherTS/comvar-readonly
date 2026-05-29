@@ -7,6 +7,8 @@ import {
 } from "@lutherts/error-handling";
 import { resolveConfigReadonly } from "@comvar/core-readonly";
 
+import { configureTsServerPlugin } from "./configure-ts-server-plugin.js";
+
 /**
  * @typedef {import("../../typedefs/index.js").TsExtensionApi} TsExtensionApi
  */
@@ -19,10 +21,6 @@ export const refreshConfig = async (
 ) => {
   const resolveConfigReadonlyResults =
     await resolveConfigReadonly(configFilePath);
-  // console.debug(
-  //   "resolveConfigReadonlyResults are:",
-  //   resolveConfigReadonlyResults,
-  // ); // It works.
 
   if (!resolveConfigReadonlyResults.success) {
     const { errors } = resolveConfigReadonlyResults;
@@ -31,16 +29,12 @@ export const refreshConfig = async (
     for (const error of twoErrorsMax) {
       showVSCodeError(vscode, error);
     }
-
     return successFalse;
   }
 
-  const { libraries: librariesData } = resolveConfigReadonlyResults;
-  // console.debug("librariesData is:", librariesData)
-
   // Updates the TypeScript server plugin via the TS extension API, with the fresh `libraries` data.
-  // tsExtensionApi.configurePlugin() // { librariesData }
-  // console.debug("tsExtensionApi after:", tsExtensionApi);
+  const { libraries: librariesData } = resolveConfigReadonlyResults;
+  configureTsServerPlugin(tsExtensionApi, { librariesData });
 
   return successTrue;
 };
