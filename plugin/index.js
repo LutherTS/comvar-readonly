@@ -268,4 +268,4 @@ function init() {
   };
 }
 
-module.exports = init; // CommonJS export instead of ES Modules. Even if the package is `{"type": "module"}`, only CommonJS is expected. Also, `init`, `create`, and `onConfigurationChanged` are all conventions that need to be followed.
+module.exports = init; // TypeScript server plugins must be CommonJS. Also, `init`, `create`, and `onConfigurationChanged` are all conventions that need to be followed.
