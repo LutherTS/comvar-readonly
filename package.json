@@ -12,7 +12,7 @@
   "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
   "publisher": "LutherTS",
   "type": "module",
-  "main": "source/library/index.js",
+  "main": "tsdown/index.mjs",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -30,12 +30,16 @@
       }
     ]
   },
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {
     "@comvar/core-readonly": "file:packages/comvar-core-readonly-0.1.8.tgz",
     "@lutherts/error-handling": "file:packages/lutherts-error-handling-0.1.8.tgz",
     "typescript-server-plugin": "file:plugin"
   },
   "devDependencies": {
-    "@types/vscode": "^1.120.0"
+    "@types/vscode": "^1.120.0",
+    "tsdown": "^0.22.1"
   }
 }
