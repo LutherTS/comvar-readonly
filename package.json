@@ -34,8 +34,8 @@
     "build": "tsdown"
   },
   "dependencies": {
-    "@comvar/core-readonly": "file:packages/comvar-core-readonly-0.1.9.tgz",
-    "@lutherts/error-handling": "file:packages/lutherts-error-handling-0.1.9.tgz",
+    "@comvar/core-readonly": "^0.1.10",
+    "@lutherts/error-handling": "^0.1.10",
     "typescript-server-plugin": "file:plugin"
   },
   "devDependencies": {
