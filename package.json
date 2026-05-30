@@ -40,5 +40,9 @@
     "@comvar/core-readonly": "^0.1.10",
     "@lutherts/error-handling": "^0.1.10",
     "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.0.tgz"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.110",
+    "tsdown": "^0.22.1"
   }
 }
