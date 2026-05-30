@@ -3,18 +3,19 @@
   "version": "0.1.0",
   "displayName": "ComVar Readonly",
   "description": "Reads Comment Variables.",
-  "keywords": [
-    "comments",
-    "variables",
-    "comment-variables"
-  ],
   "license": "UNLICENSED",
   "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
   "publisher": "LutherTS",
   "type": "module",
   "main": "tsdown/index.mjs",
+  "files": [
+    "tsdown/index.mjs",
+    "node_modules/**/*",
+    "package.json",
+    "README.md"
+  ],
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "^1.110.0"
   },
   "activationEvents": [
     "onLanguage:javascript",
@@ -31,15 +32,13 @@
     ]
   },
   "scripts": {
-    "build": "tsdown"
+    "build": "tsdown",
+    "a-dev": "npm install @types/vscode@1.110 tsdown --save-dev",
+    "r-dev": "npm uninstall @types/vscode tsdown"
   },
   "dependencies": {
     "@comvar/core-readonly": "^0.1.10",
     "@lutherts/error-handling": "^0.1.10",
-    "typescript-server-plugin": "file:plugin"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.120.0",
-    "tsdown": "^0.22.1"
+    "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.0.tgz"
   }
 }
