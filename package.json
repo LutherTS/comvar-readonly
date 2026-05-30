@@ -6,6 +6,10 @@
   "license": "UNLICENSED",
   "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
   "publisher": "LutherTS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LutherTS/comvar-readonly.git"
+  },
   "type": "module",
   "main": "tsdown/index.mjs",
   "files": [
