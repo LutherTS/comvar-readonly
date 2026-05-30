@@ -54,11 +54,11 @@ function init() {
   let freshPluginConfig = /** @type {PluginConfig | undefined} */ (undefined);
 
   return {
+    // https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin
     create(/** @type {PluginCreateInfo} */ info) {
       const logger = info.project.projectService.logger;
       logger.info("ComVar Readonly TypeScript server plugin connected.");
 
-      // https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin
       // Creates a proxy object.
       const proxy = /** @type {LanguageService} */ (Object.create(null));
 
@@ -267,4 +267,4 @@ function init() {
   };
 }
 
-module.exports = init; // TypeScript server plugins must be CommonJS. Also, `init`, `create`, and `onConfigurationChanged` are all conventions that need to be followed.
+module.exports = init; // TypeScript server plugins must be CommonJS. Also, `create` and `onConfigurationChanged` are both conventions that need to be followed.
