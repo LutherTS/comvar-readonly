@@ -38,7 +38,8 @@
   "scripts": {
     "build": "tsdown",
     "a-dev": "npm install @types/vscode@1.110 tsdown --save-dev",
-    "r-dev": "npm uninstall @types/vscode tsdown"
+    "r-dev": "npm uninstall @types/vscode tsdown",
+    "vsix": "npm run r-dev && vsce package && npm run a-dev"
   },
   "dependencies": {
     "@comvar/core-readonly": "^0.1.11",
