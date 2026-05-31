@@ -1,6 +1,6 @@
 {
   "name": "comvar-readonly",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "displayName": "ComVar Readonly",
   "description": "Reads Comment Variables.",
   "license": "UNLICENSED",
