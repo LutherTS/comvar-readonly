@@ -44,8 +44,8 @@
     "vsix": "npm run r-dev && vsce package && npm run a-dev"
   },
   "dependencies": {
-    "@comvar/core-readonly": "^0.1.11",
-    "@lutherts/error-handling": "^0.1.11",
+    "@comvar/core-readonly": "^0.1.13",
+    "@lutherts/error-handling": "^0.1.13",
     "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.0.tgz"
   },
   "devDependencies": {
