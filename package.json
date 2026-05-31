@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "displayName": "ComVar Readonly",
   "description": "Reads Comment Variables.",
+  "icon": "images/comvar-logo-light-256.png",
   "license": "UNLICENSED",
   "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
   "publisher": "LutherTS",
@@ -16,7 +17,8 @@
     "tsdown/index.mjs",
     "node_modules/**/*",
     "package.json",
-    "README.md"
+    "README.md",
+    "images/comvar-logo-light-256.png"
   ],
   "engines": {
     "vscode": "^1.110.0"
