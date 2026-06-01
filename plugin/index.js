@@ -61,7 +61,13 @@ const replacePlaceholders = (
 
 const plugin = /** @type {Plugin} */ (
   (_modules) => {
-    // const ts = _modules.typescript;
+    // const ts = _modules.typescript; // Enables the direct use of the TypeScript engine in the plugin.
+    // `"enableForWorkspaceTypeScriptVersions": true` (which is specific to VS Code extension TypeScript server plugins) ensures the version of TypeScript used is that of the workspace. Otherwise, the version of TypeScript from the project is used.
+    // HOWEVER!!! As of TypeScript 7 (and its preview), Strada plugins are no longer supported, meaning that `"enableForWorkspaceTypeScriptVersions": false` in fact helps guarantee that Strada plugins may continue to work by remaining on their affected projects' own versions of TypeScript 6.
+    // It is expected that a new Corsa API will arrive with TypeScript 7.1 or later to address this issue optimally, under a brand-new LSP-based architecture that could expand capabilities currently unique to VS Code extension TypeScript server plugins towards any LSP-compatible editor via a single Corsa plugin.
+    // But in the meantime, I would recommend remaining on TypeScript 6 as a project's core version of TypeScript, while using TypeScript 7 to unleash `tsc` on said project at 10x speeds.
+    // https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-beta/?nsl_bypass_cache=6d1297ab45c3d6baf164cfafaefc3844#upcoming-work
+
     let freshPluginConfig = /** @type {PluginConfig | undefined} */ (undefined);
 
     return {
@@ -70,20 +76,12 @@ const plugin = /** @type {Plugin} */ (
         const logger = info.project.projectService.logger;
         logger.info("ComVar Readonly TypeScript server plugin connected.");
 
-        // Creates a proxy object.
-        const proxy = /** @type {LanguageService} */ (Object.create(null));
-
-        // Copies all methods from the original `languageService` onto the proxy object.
-        for (const key of Object.keys(info.languageService)) {
-          const keyOriginalMethod = /** @type {Function} */ (
-            info.languageService[key]
-          );
-          proxy[key] = (...args) =>
-            keyOriginalMethod.apply(info.languageService, args);
-        }
+        // Creates a proxy languageService object.
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+        const proxyLanguageService = new Proxy(info.languageService, {});
 
         // Overrides `getQuickInfoAtPosition`. (Handles hovers.)
-        proxy.getQuickInfoAtPosition = (...args) => {
+        proxyLanguageService.getQuickInfoAtPosition = (...args) => {
           // Gets the original `ts.QuickInfo` at hand.
           const quickInfo = info.languageService.getQuickInfoAtPosition(
             ...args,
@@ -131,7 +129,7 @@ const plugin = /** @type {Plugin} */ (
         };
 
         // Overrides `getSignatureHelpItems`. (Handles in-function, in-object completions, etc.)
-        proxy.getSignatureHelpItems = (...args) => {
+        proxyLanguageService.getSignatureHelpItems = (...args) => {
           const signatureHelpItems = info.languageService.getSignatureHelpItems(
             ...args,
           );
@@ -218,7 +216,7 @@ const plugin = /** @type {Plugin} */ (
         };
 
         // Overrides `getCompletionEntryDetails`. (Handles suggestions details.)
-        proxy.getCompletionEntryDetails = (...args) => {
+        proxyLanguageService.getCompletionEntryDetails = (...args) => {
           const completionsEntryDetails =
             info.languageService.getCompletionEntryDetails(...args);
 
@@ -270,7 +268,7 @@ const plugin = /** @type {Plugin} */ (
         };
 
         // And returns the proxy, also now updated.
-        return proxy;
+        return proxyLanguageService;
       },
 
       // https://code.visualstudio.com/api/references/contribution-points#Plugin-configuration

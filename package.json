@@ -33,7 +33,7 @@
     "typescriptServerPlugins": [
       {
         "name": "typescript-server-plugin",
-        "enableForWorkspaceTypeScriptVersions": true
+        "enableForWorkspaceTypeScriptVersions": false
       }
     ]
   },
