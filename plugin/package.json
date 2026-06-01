@@ -1,6 +1,6 @@
 {
   "name": "typescript-server-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The TypeScript server plugin for ComVar Readonly.",
   "type": "commonjs",
   "main": "tsdown/index.cjs",

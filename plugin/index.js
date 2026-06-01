@@ -62,11 +62,11 @@ const replacePlaceholders = (
 const plugin = /** @type {Plugin} */ (
   (_modules) => {
     // const ts = _modules.typescript; // Enables the direct use of the TypeScript engine in the plugin.
-    // `"enableForWorkspaceTypeScriptVersions": true` (which is specific to VS Code extension TypeScript server plugins) ensures the version of TypeScript used is that of the workspace. Otherwise, the version of TypeScript from the project is used.
-    // HOWEVER!!! As of TypeScript 7 (and its preview), Strada plugins are no longer supported, meaning that `"enableForWorkspaceTypeScriptVersions": false` in fact helps guarantee that Strada plugins may continue to work by remaining on their affected projects' own versions of TypeScript 6.
-    // It is expected that a new Corsa API will arrive with TypeScript 7.1 or later to address this issue optimally, under a brand-new LSP-based architecture that could expand capabilities currently unique to VS Code extension TypeScript server plugins towards any LSP-compatible editor via a single Corsa plugin.
-    // But in the meantime, I would recommend remaining on TypeScript 6 as a project's core version of TypeScript, while using TypeScript 7 to unleash `tsc` on said project at 10x speeds.
+    // As of TypeScript 7 (and its preview), Strada plugins are no longer supported. In fact, by activate the VS Code preview at this time, the entire TypeScript server is gone and replaced with typescript-native-preview and typescript-native-preview (LSP).
+    // It is expected that a new Corsa API will arrive with TypeScript 7.1 or later to address this issue optimally, under this brand-new LSP-based architecture that could expand capabilities currently unique to VS Code extension TypeScript server plugins towards any LSP-compatible editor via a single Corsa plugin.
+    // But in the meantime, this plugin and all TypeScript server plugins require the current TypeScript (Native Preview) in the editor to be disabled.
     // https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-beta/?nsl_bypass_cache=6d1297ab45c3d6baf164cfafaefc3844#upcoming-work
+    // https://marketplace.visualstudio.com/items?itemName=TypeScriptTeam.native-preview&ssr=false#overview
 
     let freshPluginConfig = /** @type {PluginConfig | undefined} */ (undefined);
 
