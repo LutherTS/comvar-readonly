@@ -71,14 +71,21 @@ const plugin = /** @type {Plugin} */ (
     let freshPluginConfig = /** @type {PluginConfig | undefined} */ (undefined);
 
     return {
+      // https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin
       create: (info) => {
-        // https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin
         const logger = info.project.projectService.logger;
         logger.info("ComVar Readonly TypeScript server plugin connected.");
 
         // Creates a proxy languageService object.
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
-        const proxyLanguageService = new Proxy(info.languageService, {});
+        /** @type {LanguageService} */
+        const proxyLanguageService = Object.create(null);
+        // Copies all methods from the original languageService.
+        for (const key of Object.keys(info.languageService)) {
+          /** @type {Function} */
+          const originalMethod = info.languageService[key];
+          proxyLanguageService[key] = (...args) =>
+            originalMethod.apply(info.languageService, args);
+        }
 
         // Overrides `getQuickInfoAtPosition`. (Handles hovers.)
         proxyLanguageService.getQuickInfoAtPosition = (...args) => {
