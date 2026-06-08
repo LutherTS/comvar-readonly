@@ -59,9 +59,10 @@ const replacePlaceholders = (
 
 /* TypeScript server plugin */
 
+// https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin
 const plugin = /** @type {Plugin} */ (
   (_modules) => {
-    // const ts = _modules.typescript; // Enables the direct use of the TypeScript engine in the plugin.
+    const ts = _modules.typescript; // Enables the direct use of the TypeScript engine in the plugin.
     // As of TypeScript 7 (and its preview), Strada plugins are no longer supported. In fact, by activate the VS Code preview at this time, the entire TypeScript server is gone and replaced with typescript-native-preview and typescript-native-preview (LSP).
     // It is expected that a new Corsa API will arrive with TypeScript 7.1 or later to address this issue optimally, under this brand-new LSP-based architecture that could expand capabilities currently unique to VS Code extension TypeScript server plugins towards any LSP-compatible editor via a single Corsa plugin.
     // But in the meantime, this plugin and all TypeScript server plugins require the current TypeScript (Native Preview) in the editor to be disabled.
@@ -71,7 +72,6 @@ const plugin = /** @type {Plugin} */ (
     let freshPluginConfig = /** @type {PluginConfig | undefined} */ (undefined);
 
     return {
-      // https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin
       create: (info) => {
         const logger = info.project.projectService.logger;
         logger.info("ComVar Readonly TypeScript server plugin connected.");
