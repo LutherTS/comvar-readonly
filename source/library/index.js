@@ -69,9 +69,6 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
     } // But if they delete their package.json path, their `libraries` data remains as it last was.
   });
 
-  // And for cleanups...
-  context.subscriptions.push(watcher);
-
   // Calls a first `refreshConfigBound` for initialization.
   const initialRefreshConfigBoundResults = await refreshConfigBound();
 
@@ -82,6 +79,15 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
   } else {
     vscode.window.showInformationMessage(successfullyInitialized);
   }
+
+  // Refreshes the config every time the VS Code configuration changes. (Notably when changing the TypeScript version used for JavaScript and TypeScript language features.)
+  const onDidChangeConfigurationListener =
+    vscode.workspace.onDidChangeConfiguration(
+      async () => await refreshConfigBound(),
+    );
+
+  // And for cleanups...
+  context.subscriptions.push(watcher, onDidChangeConfigurationListener);
 }
 
 export function deactivate() {}
