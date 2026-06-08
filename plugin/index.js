@@ -286,4 +286,5 @@ const plugin = /** @type {Plugin} */ (
   }
 );
 
-module.exports = plugin; // TypeScript server plugins must be CommonJS. Also, `create` and `onConfigurationChanged` are both conventions that need to be followed.
+export default plugin;
+// module.exports = plugin; // TypeScript server plugins must be CommonJS. Also, `create` and `onConfigurationChanged` are both conventions that need to be followed. (Because I'm building this – with tsdown – into CJS, I can write this file in ESM without issues, even though there is no `"type": "module"` in `package.json`, because this file is effectively never evaluated.)
