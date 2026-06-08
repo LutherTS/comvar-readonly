@@ -6,11 +6,5 @@
   "main": "tsdown/index.cjs",
   "files": [
     "tsdown/index.cjs"
-  ],
-  "scripts": {
-    "build": "tsdown"
-  },
-  "devDependencies": {
-    "tsdown": "^0.22.1"
-  }
+  ]
 }

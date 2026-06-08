@@ -39,9 +39,10 @@
   },
   "scripts": {
     "build": "tsdown",
-    "a-dev": "npm install @types/vscode@1.110 tsdown --save-dev",
-    "r-dev": "npm uninstall @types/vscode tsdown",
-    "vsix": "npm run r-dev && vsce package && npm run a-dev"
+    "build:plugin": "tsdown --config ./plugin/tsdown.config.js",
+    "rem-dev": "npm uninstall @types/vscode tsdown typescript",
+    "add-dev": "npm install @types/vscode@1.110 tsdown typescript --save-dev",
+    "vsix": "npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
     "@comvar/core-readonly": "^0.1.14",
