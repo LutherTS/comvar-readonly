@@ -1,7 +1,7 @@
 /**
- * @typedef {typeof import("typescript/lib/tsserverlibrary")} TS
- * @typedef {import("typescript/lib/tsserverlibrary").server.PluginCreateInfo} PluginCreateInfo
- * @typedef {import("typescript/lib/tsserverlibrary").LanguageService} LanguageService
+ * @typedef {typeof import("../node_modules/typescript/lib/tsserverlibrary.js")} TS
+ * @typedef {import("../node_modules/typescript/lib/tsserverlibrary.js").server.PluginCreateInfo} PluginCreateInfo
+ * @typedef {import("../node_modules/typescript/lib/tsserverlibrary.js").LanguageService} LanguageService
  */
 /**
  * @template {unknown} T
