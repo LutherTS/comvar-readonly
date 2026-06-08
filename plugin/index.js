@@ -4,15 +4,18 @@
  * @typedef {import("../node_modules/typescript/lib/tsserverlibrary.js").LanguageService} LanguageService
  */
 /**
- * @template {unknown} T
- * @typedef {(modules: {typescript: TS}) => {create(info: PluginCreateInfo): LanguageService; onConfigurationChanged(config: T): void;}} Init
+ * @template {unknown} [T=never]
+ * @typedef {(modules: {typescript: TS}) => {
+ *   create: (info: PluginCreateInfo) => LanguageService;
+ *   onConfigurationChanged: T extends never ? never : (config: T) => void;
+ * }} Init
  */
 
 /**
  * @typedef {import("../source/typedefs/index.js").PluginConfig} PluginConfig
  */
 /**
- * @typedef {Init<PluginConfig>} Plugin
+ * @typedef {Init<PluginConfig>} TSPlugin
  */
 
 /* constants and utilities */
@@ -60,7 +63,7 @@ const replacePlaceholders = (
 /* TypeScript server plugin */
 
 // https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin
-const plugin = /** @type {Plugin} */ (
+const plugin = /** @type {TSPlugin} */ (
   (_modules) => {
     // const ts = _modules.typescript; // Enables the direct use of the TypeScript engine in the plugin.
     // As of TypeScript 7 (and its preview), Strada plugins are no longer supported. In fact, by activate the VS Code preview at this time, the entire TypeScript server is gone and replaced with typescript-native-preview and typescript-native-preview (LSP).
