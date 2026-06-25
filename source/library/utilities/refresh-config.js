@@ -24,16 +24,23 @@ export const refreshConfig = async (
 
   if (!resolveConfigReadonlyResults.success) {
     const { errors } = resolveConfigReadonlyResults;
-    const twoErrorsMax = errors.slice(0, 2);
+    const threeErrorsMax = errors.slice(0, 3);
 
-    for (const error of twoErrorsMax) {
+    for (const error of threeErrorsMax) {
       showVSCodeError(vscode, error);
     }
     return successFalse;
   }
 
   // Updates the TypeScript server plugin via the TS extension API, with the fresh `libraries` data.
-  const { libraries: librariesData } = resolveConfigReadonlyResults;
+  const {
+    // libraries: librariesData,
+    libraryVariationKeys_libraryVariationValues,
+  } = resolveConfigReadonlyResults;
+  const librariesData = Object.fromEntries(
+    libraryVariationKeys_libraryVariationValues,
+  );
+
   configureTsServerPlugin(tsExtensionApi, { librariesData });
 
   return successTrue;

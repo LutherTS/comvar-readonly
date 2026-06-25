@@ -45,9 +45,9 @@
     "vsix": "npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
-    "@comvar/core-readonly": "^0.1.14",
+    "@comvar/core-readonly": "^0.1.19",
     "@lutherts/error-handling": "^0.1.14",
-    "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.4.tgz"
+    "typescript-server-plugin": "file:plugin"
   },
   "devDependencies": {
     "@types/vscode": "1.110",

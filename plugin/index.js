@@ -45,19 +45,17 @@ const replacePlaceholders = (
   if (!freshPluginConfig) return text;
   const { librariesData } = freshPluginConfig;
 
-  if (!librariesData) return text;
-  else {
-    return text.replace(flattenedConfigDataPlaceholderGlobalRegex, (match) => {
-      const key = match.replace(`${$COMMENT}#`, "");
-      const libraryPrefixKey = key.split("#")[0];
-      const libraryData = librariesData[libraryPrefixKey];
-      if (libraryData) {
-        const libraryReplacement = libraryData[key];
-        if (libraryReplacement !== undefined) return libraryReplacement;
-        else return match;
-      } else return match;
-    });
-  }
+  return text.replace(
+    flattenedConfigDataPlaceholderGlobalRegex,
+    (
+      matchCommentVariablesPlaceholder,
+      /** @type {string} */ matchCommentVariablesKey,
+    ) => {
+      if (librariesData && librariesData[matchCommentVariablesKey])
+        return librariesData[matchCommentVariablesKey];
+      else return matchCommentVariablesPlaceholder;
+    },
+  );
 };
 
 /* TypeScript server plugin */
