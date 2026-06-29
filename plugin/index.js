@@ -34,7 +34,7 @@ const escapeRegex = (/** @type {string} */ string) =>
   string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // from "@lutherts/error-handling"
 
 const flattenedConfigDataPlaceholderGlobalRegex = new RegExp(
-  `${escapeRegex($COMMENT)}#(?!#)([\\p{Lu}\\p{Lo}\\p{N}_#]+)`,
+  `${escapeRegex($COMMENT)}#([\\p{Lu}\\p{Lo}\\p{N}_]+(?:#[\\p{Lu}\\p{Lo}\\p{N}_]+)+)`,
   "gu",
 ); // from "@comvar/core-readonly"
 
