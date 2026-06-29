@@ -40,14 +40,16 @@
   "scripts": {
     "build": "tsdown",
     "build:plugin": "tsdown --config ./plugin/tsdown.config.js",
+    "install-plugin": "npm i file:plugin/package/typescript-server-plugin-0.1.6.tgz",
+    "install-plugin:dev": "npm i file:plugin",
     "rem-dev": "npm uninstall @types/vscode tsdown typescript",
     "add-dev": "npm install @types/vscode@1.110 tsdown typescript --save-dev",
     "vsix": "npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
-    "@comvar/core-readonly": "^0.1.19",
-    "@lutherts/error-handling": "^0.1.14",
-    "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.5.tgz"
+    "@comvar/core-readonly": "^0.1.23",
+    "@lutherts/error-handling": "^0.1.16",
+    "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.6.tgz"
   },
   "devDependencies": {
     "@types/vscode": "1.110",
