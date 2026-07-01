@@ -12,9 +12,9 @@
     "url": "git+https://github.com/LutherTS/comvar-readonly.git"
   },
   "type": "module",
-  "main": "tsdown/index.mjs",
+  "main": "tsdown/library/index.mjs",
   "files": [
-    "tsdown/index.mjs",
+    "tsdown/library/index.mjs",
     "node_modules/**/*",
     "package.json",
     "README.md",
@@ -47,7 +47,7 @@
     "vsix": "npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
-    "@comvar/core-readonly": "^0.1.23",
+    "@comvar/core-readonly": "^0.1.24",
     "@lutherts/error-handling": "^0.1.16",
     "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.6.tgz"
   },
