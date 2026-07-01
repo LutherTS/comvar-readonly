@@ -1,0 +1,26 @@
+{
+  "iconDefinitions": {
+    "_config_file": {
+      "iconPath": "../images/comvar-logo-light-256.png"
+    }
+  },
+  "fileNames": {
+    "comments.config.js": "_config_file"
+  }
+}
+
+/* 
+// package.json
+  "contributes": {
+    // ...
+    "iconThemes": [
+      {
+        "id": "comvar",
+        "label": "Comment Variables",
+        "path": "./fileicons/comvar-icon-theme.json"
+      }
+    ]
+  },
+// (Canceled because overrides instead of augments original icons.)
+// https://github.com/microsoft/vscode-docs/blob/ac0b421a1e369c10bd446352e4ea90bfbfff9ef0/api/extension-guides/file-icon-theme.md
+*/
