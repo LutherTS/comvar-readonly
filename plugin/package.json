@@ -1,6 +1,6 @@
 {
   "name": "typescript-server-plugin",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "tsdown/index.cjs",
   "files": [
     "tsdown/index.cjs"

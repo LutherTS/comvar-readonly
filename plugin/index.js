@@ -51,7 +51,12 @@ const replacePlaceholders = (
       matchCommentVariablesPlaceholder,
       /** @type {string} */ matchCommentVariablesKey,
     ) => {
-      if (librariesData && librariesData[matchCommentVariablesKey])
+      if (
+        librariesData &&
+        (librariesData[matchCommentVariablesKey] ||
+          // because empty string values are now accepted for librariesData
+          librariesData[matchCommentVariablesKey] === "")
+      )
         return librariesData[matchCommentVariablesKey];
       else return matchCommentVariablesPlaceholder;
     },
