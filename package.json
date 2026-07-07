@@ -47,7 +47,7 @@
     "package": "npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
-    "@comvar/core-readonly": "^0.1.25",
+    "@comvar/core-readonly": "^0.1.26",
     "@lutherts/error-handling": "^0.1.18",
     "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.6.tgz"
   },
