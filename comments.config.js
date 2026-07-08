@@ -49,15 +49,15 @@ const variations = Object.freeze({
 
 import { commentVariablesData as errorHandlingCommentVariablesData } from "@lutherts/error-handling";
 import { commentVariablesData as coreReadonlyCommentVariablesData } from "@comvar/core-readonly";
-// import coreReadonlyCommentVariablesDataIntl from "./comment-variables/miscellaneous/librairies/core-readonly.intl.json" with { type: "json" };
+import coreReadonlyCommentVariablesDataIntl from "./comment-variables/miscellaneous/librairies/core-readonly.intl.json" with { type: "json" };
 
 const libraries = {
   [errorHandlingCommentVariablesData.libraryKey]:
     errorHandlingCommentVariablesData.libraryVariations.EN,
   [coreReadonlyCommentVariablesData.libraryKey]:
-    coreReadonlyCommentVariablesData.libraryVariations.EN,
-  // coreReadonlyCommentVariablesDataIntl.EN, // unneeded for now
-}; // can be omitted // v3
+    // coreReadonlyCommentVariablesData.libraryVariations.EN,
+    coreReadonlyCommentVariablesDataIntl.EN,
+}; // can be omitted
 
 const config = {
   data,
@@ -66,7 +66,7 @@ const config = {
   lintConfigImports,
   composedVariablesExclusives,
   variations,
-  libraries, // v3
+  libraries,
 };
 
 export default config;
