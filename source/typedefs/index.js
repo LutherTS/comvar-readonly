@@ -1,3 +1,5 @@
+import * as vscode from "vscode";
+
 /**
  * @typedef {{configurePlugin: Function}} TsExtensionApi
  */
@@ -7,6 +9,13 @@
  */
 /**
  * @typedef {{librariesData: LibrariesData | null}} PluginConfig
+ */
+
+/**
+ * @typedef {vscode.FileSystemWatcher} FileSystemWatcher
+ */
+/**
+ * @typedef {vscode.WorkspaceFolder} WorkspaceFolder
  */
 
 export {};

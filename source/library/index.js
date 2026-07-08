@@ -20,6 +20,10 @@ import { getTsExtensionApi } from "./utilities/get-ts-extension-api.js";
 import { configureTsServerPlugin } from "./utilities/configure-ts-server-plugin.js";
 import { refreshConfig } from "./utilities/refresh-config.js";
 
+/**
+ * @typedef {import("../typedefs/index.js").FileSystemWatcher} FileSystemWatcher
+ */
+
 export async function activate(/** @type {vscode.ExtensionContext} */ context) {
   // Uses the first workspace folder as current working directory.
   const rootDirectory = vscode.workspace.workspaceFolders?.[0];
@@ -46,11 +50,18 @@ export async function activate(/** @type {vscode.ExtensionContext} */ context) {
     librariesData: null,
   });
 
+  // Creates the watchers array for config imported paths, to bind it to `refreshConfig`.
+  const jsonImportPathsWatchers = {
+    watchers: /** @type {FileSystemWatcher[]} */ ([]),
+  };
+
   // Creates the stable instance of `refreshConfig` bound to the immutable config file path and to the immutable TS Extension API.
   const refreshConfigBound = refreshConfig.bind(
     null,
     configFilePath,
     tsExtensionApi,
+    jsonImportPathsWatchers,
+    rootDirectory,
   );
 
   // Creates the sub-watchers for both the default config file path and the package.json file path, meant to react to their changes by firing `refreshConfigBound`.
