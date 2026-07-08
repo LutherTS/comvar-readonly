@@ -12,9 +12,9 @@
     "url": "git+https://github.com/LutherTS/comvar-readonly.git"
   },
   "type": "module",
-  "main": "source/library/index.js",
+  "main": "tsdown/library/index.mjs",
   "files": [
-    "source/library/index.js",
+    "tsdown/library/index.mjs",
     "node_modules/**/*",
     "package.json",
     "README.md",
