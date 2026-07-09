@@ -12,7 +12,7 @@ const lintConfigImports = false; // can be omitted
 
 /* ignores */
 
-const ignores = [];
+const ignores = ["**/typedefs/**"];
 
 /* composedVariablesExclusives */
 
