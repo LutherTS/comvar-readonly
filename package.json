@@ -43,17 +43,17 @@
     "install-plugin": "npm i file:plugin/package/typescript-server-plugin-0.1.8.tgz",
     "install-plugin:dev": "npm i file:plugin",
     "rem-dev": "npm uninstall @types/vscode tsdown typescript",
-    "add-dev": "npm install @types/vscode@1.110 tsdown typescript --save-dev",
+    "add-dev": "npm install @types/vscode@1.110 tsdown typescript@npm:@typescript/typescript6 --save-dev",
     "package": "npm run build && npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
-    "@comvar/core-readonly": "^0.1.30",
-    "@lutherts/error-handling": "^0.1.20",
+    "@comvar/core-readonly": "^0.1.31",
+    "@lutherts/error-handling": "^0.1.21",
     "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.8.tgz"
   },
   "devDependencies": {
     "@types/vscode": "1.110",
-    "tsdown": "^0.22.4",
-    "typescript": "^6.0.3"
+    "tsdown": "^0.22.5",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }
