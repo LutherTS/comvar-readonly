@@ -28,13 +28,15 @@ Constants and utility from:
 - "@comvar/core-readonly"
  */
 
-const $COMMENT = "$COMMENT"; // from "@comvar/core-readonly"
-
 const escapeRegex = (/** @type {string} */ string) =>
   string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // from "@lutherts/error-handling"
 
+const $COMMENT = "$COMMENT"; // from "@comvar/core-readonly"
+
+const subkeySeparator = "#"; // from "@comvar/core-readonly"
+
 const flattenedConfigDataPlaceholderGlobalRegex = new RegExp(
-  `${escapeRegex($COMMENT)}#([\\p{Lu}\\p{Lo}\\p{N}_]+(?:#[\\p{Lu}\\p{Lo}\\p{N}_]+)+)`, // remains `)+)` instead of `)*)` because libraries only
+  `${escapeRegex($COMMENT)}${escapeRegex(subkeySeparator)}([\\p{Lu}\\p{Lo}\\p{N}_]+(?:${escapeRegex(subkeySeparator)}[\\p{Lu}\\p{Lo}\\p{N}_]+)*)`,
   "gu",
 ); // from "@comvar/core-readonly"
 
