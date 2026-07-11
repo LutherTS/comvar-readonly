@@ -1,6 +1,6 @@
 {
   "name": "comvar-readonly",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "displayName": "ComVar Readonly",
   "description": "Reads Comment Variables.",
   "icon": "images/comvar-logo-light-256.png",
