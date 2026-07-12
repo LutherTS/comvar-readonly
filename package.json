@@ -25,8 +25,8 @@
     "build:plugin": "tsdown --config ./plugin/tsdown.config.js",
     "install-plugin": "npm i file:plugin/package/typescript-server-plugin-0.1.8.tgz",
     "install-plugin:dev": "npm i file:plugin",
-    "rem-dev": "npm uninstall @types/vscode tsdown typescript",
-    "add-dev": "npm install @types/vscode@1.110 tsdown typescript@npm:@typescript/typescript6 --save-dev",
+    "rem-dev": "npm uninstall @types/vscode tsdown typescript oxfmt oxlint",
+    "add-dev": "npm install @types/vscode@1.110 tsdown typescript@npm:@typescript/typescript6 oxfmt oxlint --save-dev",
     "package": "npm run build && npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
