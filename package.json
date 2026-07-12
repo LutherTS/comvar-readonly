@@ -30,8 +30,8 @@
     "package": "npm run build && npm run lint && npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
-    "@comvar/core-readonly": "^0.1.31",
-    "@lutherts/error-handling": "^0.1.21",
+    "@comvar/core-readonly": "^0.1.33",
+    "@lutherts/error-handling": "^0.1.22",
     "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.8.tgz"
   },
   "devDependencies": {
