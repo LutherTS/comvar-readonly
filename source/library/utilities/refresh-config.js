@@ -41,7 +41,7 @@ export const refreshConfig = async (
   const {
     // libraries: librariesData,
     libraryVariationKeys_libraryVariationValues,
-    userlandJsonImports__Absolute,
+    // userlandJsonImports__Absolute,
     userlandJsonImports__Relative,
   } = resolveConfigReadonlyResults;
   const librariesData = Object.fromEntries(

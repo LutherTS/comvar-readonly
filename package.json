@@ -1,18 +1,15 @@
 {
   "name": "comvar-readonly",
-  "version": "0.1.14",
   "displayName": "ComVar Readonly",
+  "version": "0.1.14",
   "description": "Reads Comment Variables.",
-  "icon": "images/comvar-logo-light-256.png",
   "license": "UNLICENSED",
   "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
-  "publisher": "LutherTS",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LutherTS/comvar-readonly.git"
   },
-  "type": "module",
-  "main": "tsdown/library/index.mjs",
+  "publisher": "LutherTS",
   "files": [
     "tsdown/library/index.mjs",
     "node_modules/**/*",
@@ -20,25 +17,11 @@
     "README.md",
     "images/comvar-logo-light-256.png"
   ],
-  "engines": {
-    "vscode": "^1.110.0"
-  },
-  "activationEvents": [
-    "onLanguage:javascript",
-    "onLanguage:typescript",
-    "onLanguage:javascriptreact",
-    "onLanguage:typescriptreact"
-  ],
-  "contributes": {
-    "typescriptServerPlugins": [
-      {
-        "name": "typescript-server-plugin",
-        "enableForWorkspaceTypeScriptVersions": true
-      }
-    ]
-  },
+  "type": "module",
+  "main": "tsdown/library/index.mjs",
   "scripts": {
     "build": "tsdown",
+    "lint": "oxlint",
     "build:plugin": "tsdown --config ./plugin/tsdown.config.js",
     "install-plugin": "npm i file:plugin/package/typescript-server-plugin-0.1.8.tgz",
     "install-plugin:dev": "npm i file:plugin",
@@ -53,7 +36,27 @@
   },
   "devDependencies": {
     "@types/vscode": "1.110",
+    "oxfmt": "^0.58.0",
+    "oxlint": "^1.73.0",
     "tsdown": "^0.22.5",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
+  },
+  "contributes": {
+    "typescriptServerPlugins": [
+      {
+        "name": "typescript-server-plugin",
+        "enableForWorkspaceTypeScriptVersions": true
+      }
+    ]
+  },
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact"
+  ],
+  "icon": "images/comvar-logo-light-256.png",
+  "engines": {
+    "vscode": "^1.110.0"
   }
 }
