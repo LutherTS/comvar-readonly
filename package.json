@@ -27,7 +27,7 @@
     "install-plugin:dev": "npm i file:plugin",
     "rem-dev": "npm uninstall @types/vscode tsdown typescript oxfmt oxlint",
     "add-dev": "npm install @types/vscode@1.110 tsdown typescript@npm:@typescript/typescript6 oxfmt oxlint --save-dev",
-    "package": "npm run build && npm run rem-dev && vsce package && npm run add-dev"
+    "package": "npm run build && npm run lint && npm run rem-dev && vsce package && npm run add-dev"
   },
   "dependencies": {
     "@comvar/core-readonly": "^0.1.31",
