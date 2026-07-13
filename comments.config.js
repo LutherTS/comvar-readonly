@@ -44,14 +44,12 @@ const variations = Object.freeze({
 
 import { commentVariablesData as errorHandlingCommentVariablesData } from "@lutherts/error-handling";
 import { commentVariablesData as coreReadonlyCommentVariablesData } from "@comvar/core-readonly";
-// import coreReadonlyCommentVariablesDataIntl from "./comment-variables/miscellaneous/librairies/core-readonly.intl.json" with { type: "json" };
 
 const libraries = {
   [errorHandlingCommentVariablesData.libraryKey]:
     errorHandlingCommentVariablesData.libraryVariations.EN,
   [coreReadonlyCommentVariablesData.libraryKey]:
     coreReadonlyCommentVariablesData.libraryVariations.EN,
-  // coreReadonlyCommentVariablesDataIntl.EN,
 }; // can be omitted
 
 /* config */
