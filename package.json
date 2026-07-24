@@ -1,7 +1,7 @@
 {
   "name": "comvar-readonly",
   "displayName": "ComVar Readonly",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Reads Comment Variables.",
   "license": "UNLICENSED",
   "author": "Luther Tchofo Safo <luther@tchofo-safo-portfolio.me>",
