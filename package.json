@@ -34,13 +34,6 @@
     "@lutherts/error-handling": "^0.1.23",
     "typescript-server-plugin": "file:plugin/package/typescript-server-plugin-0.1.8.tgz"
   },
-  "devDependencies": {
-    "@types/vscode": "1.110",
-    "oxfmt": "^0.58.0",
-    "oxlint": "^1.73.0",
-    "tsdown": "^0.22.5",
-    "typescript": "npm:@typescript/typescript6@^6.0.2"
-  },
   "contributes": {
     "typescriptServerPlugins": [
       {
@@ -58,5 +51,12 @@
   "icon": "images/comvar-logo-light-256.png",
   "engines": {
     "vscode": "^1.110.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.110",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0",
+    "tsdown": "^0.22.14",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }
